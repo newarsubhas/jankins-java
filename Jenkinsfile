@@ -9,5 +9,8 @@ node{
 	stage('Email Notification'){
 	mail bcc: '', body: 'helo body', cc: '', from: 'prabhatiitbhu@gmail.com', replyTo: '', subject: 'hello subject', to: 'prabhat@aptence.com'
 	}
+	stage('Slack Notification'){
+	slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#devops', color: '#439FE0', message: 'Build Started: ${env.JOB_NAME} ${env.BUILD_NUMBER}', teamDomain: 'devops-dxa2539', tokenCredentialId: 'slack-secret'
+	}
 
 }
